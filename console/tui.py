@@ -35,8 +35,8 @@ def out_title(text: str) -> None:
 class ConUIElem:
     """Base console UI element."""
 
-    def init() -> None: return
-    def out() -> None: return
+    def init(self) -> None: return
+    def out(self) -> None: return
 
 class ListSelection(ConUIElem):
     """A user interactive selection list."""
@@ -92,12 +92,22 @@ class ListSelection(ConUIElem):
 
         # Title
         out_title(self.title)
-        print(f"{Fore.RED}Page ({int_str(self.page, 2)}/{int_str(self.max_pages, 2)})")
+        print(f"{Fore.RED}Page ({int_str(self.page + 1, 2)}/{int_str(self.max_pages, 2)})" + CON_CLS)
 
         txt = ""
         pre = "# "
 
-        for elem in self.all_elems
+        for num, elem in enumerate(self.all_elems):
+            txta = pre + f"{Fore.WHITE}{Back.RED}[{int_str(num + 1)}]{CON_CLS} - "
+            e_name = trunc_name(elem, 15)
+            txta += e_name + (" " * (15 -len(e_name))) + " "
+            txta += f"| {Fore.YELLOW}"
+            txta += trunc_name(self.elements[elem].__doc__, CON_W - len(txta)) + CON_CLS
+            txt += txta +"\n"
+        
+        print(txt)
+    
+    def _handle_input(self, input: str)
 
 
 def display(elem: ConUIElem) -> None:
@@ -107,3 +117,9 @@ def display(elem: ConUIElem) -> None:
     elem.out()
 
 out_title("Hello there!")
+
+b = ListSelection("Bruh")
+b.add_page_elem("A thing", display)
+b.add_page_elem("Another thing", display)
+b.add_page_elem("Your Great grand father", display)
+display(b)

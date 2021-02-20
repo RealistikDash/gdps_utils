@@ -98,7 +98,7 @@ def trunc_name(text: str, max_len: int = 10) -> str:
     if t_len := len(text) <= max_len:
         return text
     
-    return text[max_len-3:] + "..."
+    return text[:max_len-3] + "..."
 
 def int_str(num: int, min_len: int = 2):
     """Converts `num` into a str."""
