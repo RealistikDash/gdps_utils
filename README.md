@@ -9,6 +9,12 @@ GDPS Utils offers a multitude of tools for server users to use!
 - You could be spending this time contributing to gdps_utils
 - You really must be bored...
 
+## Planned Features
+- User ID changes
+- Bot cleanup
+- Mass level downloader
+- Local Storage Optimisations
+
 ## How do I use it?
 GDPS Utils has specifically been designed to specifically designed
 to be simple to use and configure. Getting it to work is a simple
