@@ -1,5 +1,5 @@
 # GDPS Utilities
-A set of server-side tools for server owners
+A set of server-side tools for server owners, allowing for annoying tasks to be executed automatically.
 
 ## What's available?
 GDPS Utils offers a multitude of tools for server users to use!
